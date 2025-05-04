@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoundrel - Card Game</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Scoundrel</h1>
+            <div class="game-controls">
+                <button id="new-game-btn">New Game</button>
+                <button id="skip-room-btn">Skip Room</button>
+            </div>
+        </header>
+
+        <div class="game-status">
+            <div class="player-status">
+                <div class="health-container">
+                    <h3>Health</h3>
+                    <div class="health-bar">
+                        <div id="health-fill"></div>
+                    </div>
+                    <div id="health-value">20/20</div>
+                </div>
+                <div class="weapon-container">
+                    <h3>Equipped Weapon</h3>
+                    <div id="weapon-slot" class="card-slot">
+                        <!-- Weapon card will be placed here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="defeated-monsters">
+                <h3>Defeated Monsters</h3>
+                <div id="monsters-container" class="monsters-accordion">
+                    <!-- Defeated monsters will be placed here -->
+                </div>
+            </div>
+        </div>
+
+        <div class="game-board">
+            <div class="dungeon-container">
+                <h3>Dungeon</h3>
+                <div class="deck-container">
+                    <div id="deck" class="card-stack">
+                        <!-- Number of remaining cards shown here -->
+                        <div class="card card-back">
+                            <span id="deck-count">0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-container">
+                <h3>Current Room</h3>
+                <div id="room" class="room">
+                    <!-- Current room cards will be placed here -->
+                    <div class="card-slot" id="card-slot-0"></div>
+                    <div class="card-slot" id="card-slot-1"></div>
+                    <div class="card-slot" id="card-slot-2"></div>
+                    <div class="card-slot" id="card-slot-3"></div>
+                </div>
+            </div>
+
+            <div class="discard-container">
+                <h3>Discard</h3>
+                <div id="discard" class="card-stack">
+                    <!-- Discard pile -->
+                    <div class="card card-back discard-top"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-log">
+            <h3>Game Log</h3>
+            <div id="log-container">
+                <!-- Game logs will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Combat choice modal dialog -->
+    <div id="combat-modal" class="modal">
+        <div class="modal-content">
+            <h2>Combat Options</h2>
+            <p id="combat-description"></p>
+            <div class="combat-options">
+                <button id="use-weapon-btn">Use Weapon</button>
+                <button id="fight-barehanded-btn">Fight Barehanded</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game over modal dialog -->
+    <div id="gameover-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="gameover-title">Game Over</h2>
+            <p id="gameover-message"></p>
+            <button id="restart-game-btn">Play Again</button>
+        </div>
+    </div>
+
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+</body>
+</html>

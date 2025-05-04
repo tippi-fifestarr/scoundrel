@@ -1,0 +1,329 @@
+/* Scoundrel Game - Main Styles */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.game-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #34495e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+h1 {
+    color: #3498db;
+    font-size: 36px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+/* Game Status Section */
+.game-status {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.player-status {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.health-container {
+    margin-bottom: 15px;
+}
+
+.health-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e74c3c;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+#health-fill {
+    height: 100%;
+    background-color: #2ecc71;
+    width: 100%; /* Will be updated by JS */
+    transition: width 0.5s;
+}
+
+.weapon-container {
+    margin-bottom: 15px;
+}
+
+.defeated-monsters {
+    width: 35%;
+}
+
+.monsters-accordion {
+    display: flex;
+    flex-direction: column;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* Game Board Section */
+.game-board {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.dungeon-container, .discard-container {
+    width: 20%;
+    text-align: center;
+}
+
+.room-container {
+    width: 55%;
+}
+
+.room {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #2c3e50;
+    border-radius: 10px;
+    min-height: 200px;
+}
+
+/* Card Styles */
+.card-slot {
+    width: 120px;
+    height: 170px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 2px dashed #95a5a6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.card {
+    width: 120px;
+    height: 170px;
+    background-color: #ecf0f1;
+    color: #2c3e50;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-back {
+    background-color: #3498db;
+    background-image: linear-gradient(45deg, #3498db, #2c3e50);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-value {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card-suit {
+    font-size: 24px;
+}
+
+/* Suit colors */
+.suit-clubs, .suit-spades {
+    color: #000;
+}
+
+.suit-hearts, .suit-diamonds {
+    color: #e74c3c;
+}
+
+.card-center {
+    text-align: center;
+    font-size: 48px;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    transform: rotate(180deg);
+}
+
+/* Card Types */
+.card-monster {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.card-weapon {
+    background-color: #3498db;
+    color: white;
+}
+
+.card-potion {
+    background-color: #2ecc71;
+    color: white;
+}
+
+/* Card Stacks */
+.card-stack {
+    position: relative;
+    width: 120px;
+    height: 170px;
+    margin: 0 auto;
+}
+
+.card-stack::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 170px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    bottom: -5px;
+    left: -5px;
+    z-index: -1;
+}
+
+/* Game Log */
+.game-log {
+    background-color: #2c3e50;
+    border-radius: 10px;
+    padding: 15px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+#log-container {
+    font-family: monospace;
+}
+
+.log-entry {
+    margin-bottom: 5px;
+    padding: 5px;
+    border-bottom: 1px solid #3498db;
+}
+
+/* Modal Dialog */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #34495e;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    text-align: center;
+}
+
+.combat-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+#combat-description {
+    margin: 20px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .game-board,
+    .game-status {
+        flex-direction: column;
+    }
+    
+    .player-status,
+    .defeated-monsters,
+    .dungeon-container,
+    .room-container,
+    .discard-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .room {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .card-slot,
+    .card {
+        width: 100px;
+        height: 140px;
+    }
+}
