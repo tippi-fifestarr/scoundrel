@@ -3,6 +3,7 @@ package api
 import (
 	"log"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -54,6 +55,12 @@ func (s *Server) setupRoutes() {
 
 // Start starts the HTTP server
 func (s *Server) Start(addr string) error {
+	// Use PORT from environment if provided (for Render)
+	port := os.Getenv("PORT")
+	if port != "" {
+		addr = "0.0.0.0:" + port
+	}
+
 	srv := &http.Server{
 		Handler:      s.router,
 		Addr:         addr,

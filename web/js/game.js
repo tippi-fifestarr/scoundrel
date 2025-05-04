@@ -1,8 +1,17 @@
 // Scoundrel Game - Core Game Logic
 
+// update this to false if deploying to local server
+const useRender = true;
+let BASE;
+if (useRender) {
+    BASE = ''; // empty string for same-origin requests
+} else {
+    BASE = 'http://localhost:8080';
+}
+
 // API endpoints
 const API = {
-    BASE_URL: 'http://localhost:8080',
+    BASE_URL: BASE, 
     NEW_GAME: '/api/games',
     GAME_STATE: '/api/games/{id}',
     PLAY_CARD: '/api/games/{id}/play/{index}',
